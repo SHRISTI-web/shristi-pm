@@ -8,26 +8,12 @@
 <style>
 
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, "Segoe UI", sans-serif; }
 
-body {
-  background: #f6f7fb;
-  color: #111;
-}
+body { background: #f6f7fb; color: #111; }
 
 /* NAV */
-nav {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #eee;
-}
+nav { position: sticky; top: 0; background: rgba(255,255,255,0.9); border-bottom: 1px solid #eee; }
 
 .nav-inner {
   max-width: 900px;
@@ -35,22 +21,15 @@ nav {
   padding: 14px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .nav-links button {
-  border: none;
-  background: none;
-  margin-left: 12px;
-  padding: 6px 10px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 13px;
+  border: none; background: none; margin-left: 12px;
+  padding: 6px 10px; cursor: pointer; border-radius: 6px;
 }
 
 .nav-links button.active {
-  background: #eef2ff;
-  color: #3b5bdb;
+  background: #eef2ff; color: #3b5bdb;
 }
 
 /* HERO */
@@ -60,22 +39,14 @@ nav {
   padding: 70px 20px 40px;
 }
 
-.hero-title {
-  font-size: 46px;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-.hero-title span {
-  color: #3b5bdb;
-}
+.hero-title { font-size: 46px; font-weight: 700; }
+.hero-title span { color: #3b5bdb; }
 
 .hero-sub {
-  color: #555;
   margin-top: 18px;
+  color: #555;
   font-size: 18px;
   line-height: 1.7;
-  max-width: 700px;
 }
 
 /* PANELS */
@@ -89,42 +60,15 @@ nav {
 }
 
 /* TEXT */
-h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
+h2 { font-size: 28px; margin-bottom: 12px; }
+h3 { margin-top: 32px; margin-bottom: 10px; }
 
-h3 {
-  margin-top: 32px;
-  margin-bottom: 10px;
-}
-
-.big-q {
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-.intro {
-  margin-top: 10px;
-  color: #555;
-  line-height: 1.7;
-}
+.big-q { font-size: 20px; font-weight: 600; }
+.intro { color: #555; line-height: 1.7; margin-top: 10px; }
 
 /* STATS */
-.stats {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.stat {
-  background: #eef2ff;
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-}
+.stats { display: flex; gap: 12px; margin-top: 20px; }
+.stat { background: #eef2ff; padding: 10px 14px; border-radius: 10px; font-weight: 600; }
 
 /* CARDS */
 .card {
@@ -132,7 +76,7 @@ h3 {
   padding: 20px;
   border-radius: 14px;
   margin-top: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.04);
 }
 
 .card-blue { border-left: 4px solid #3b5bdb; }
@@ -140,28 +84,23 @@ h3 {
 .card-amber { border-left: 4px solid #f59f00; }
 
 /* DIAGRAM */
-.diagram {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 20px;
-  margin-top: 16px;
-  border: 1px solid #eee;
-}
-
-.diagram-row {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
+.diagram { margin-top: 16px; }
+.diagram-box {
+  background: #f1f3f5;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 6px 0;
   font-size: 13px;
 }
 
-.diagram-box {
-  background: #f1f3f5;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  flex: 1;
-  margin: 4px;
+/* PSEUDO UI */
+.mock {
+  background: #111;
+  color: #0f0;
+  padding: 14px;
+  border-radius: 10px;
+  font-family: monospace;
+  margin-top: 16px;
 }
 
 /* FOOTER */
@@ -189,115 +128,122 @@ h3 {
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <h1 class="hero-title">
     Building <span>AI-powered product systems</span>
   </h1>
 
   <p class="hero-sub">
-    Associate Product Manager at Shipsy. Built AI systems reducing support tickets by 90% and scaling to 2M+ users. 
-    I design systems that convert operational chaos into structured, scalable workflows.
+    Built AI systems reducing support tickets by 90% and scaling to 2M+ users.
+    I design systems that convert operational chaos into structured workflows.
   </p>
 </div>
 
-<!-- ================= AI SYSTEMS ================= -->
+<!-- ================= AI SYSTEM ================= -->
 <div id="s0" class="panel active">
 <div class="panel-inner">
 
 <h2>AI Systems</h2>
 
-<p class="big-q">How do you reduce support dependency without scaling support teams?</p>
+<p class="big-q">How do you reduce support dependency without scaling teams?</p>
 
 <p class="intro">
-Enterprise clients generated repeated debugging issues across logs, APIs, and DB layers — creating bottlenecks and slow resolution.
+Repeated support issues required engineering debugging. Problem was not lack of data — but lack of structured decision systems.
 </p>
 
 <div class="stats">
-  <div class="stat">90% ticket reduction</div>
-  <div class="stat">2 hr P0 resolution</div>
-  <div class="stat">200+ hrs saved/month</div>
+  <div class="stat">90% reduction</div>
+  <div class="stat">2 hr resolution</div>
+  <div class="stat">200+ hrs saved</div>
 </div>
 
-<!-- 🔥 DIAGRAM -->
+<!-- SYSTEM FLOW -->
 <h3>System Design</h3>
 <div class="diagram">
-  <div class="diagram-row">
-    <div class="diagram-box">User Issue</div>
-    <div class="diagram-box">AI Agent</div>
-    <div class="diagram-box">Logs / APIs / DB</div>
-  </div>
-  <div class="diagram-row">
-    <div class="diagram-box">Pattern Detection</div>
-    <div class="diagram-box">Claude RCA</div>
-    <div class="diagram-box">Fix Suggestion</div>
-  </div>
-  <div class="diagram-row">
-    <div class="diagram-box">PR Creation</div>
-    <div class="diagram-box">Sandbox Test</div>
-    <div class="diagram-box">Deploy</div>
-  </div>
+  <div class="diagram-box">User Issue → AI Agent</div>
+  <div class="diagram-box">Fetch logs / APIs / DB</div>
+  <div class="diagram-box">Claude → RCA</div>
+  <div class="diagram-box">Fix → PR → Sandbox → Deploy</div>
+</div>
+
+<!-- PSEUDO UI -->
+<h3>AI Output (Pseudo UI)</h3>
+<div class="mock">
+Issue: Shipment stuck <br>
+Root Cause: Missing scan event <br>
+Fix: Trigger reattempt API <br>
+Next Step: Validate in sandbox <br>
+</div>
+
+<!-- DECISIONS -->
+<h3>Why this vs Alternatives</h3>
+<div class="card">
+<ul>
+<li><strong>Dashboard approach:</strong> rejected → required human analysis</li>
+<li><strong>Rule engine:</strong> rejected → not scalable for unknown issues</li>
+<li><strong>Chosen:</strong> AI-assisted debugging → adaptive + scalable</li>
+</ul>
 </div>
 
 <h3>Key Decisions</h3>
 <div class="card">
 <ul>
-<li>Prioritized AI debugging over dashboards</li>
-<li>Focused on repeatable issue patterns first</li>
-<li>Balanced automation vs manual overrides</li>
+<li>Focus on repeatable patterns first</li>
+<li>Human override for edge cases</li>
+<li>PR-based fixes instead of auto deploy</li>
 </ul>
 </div>
 
 <h3>Before vs After</h3>
 <div class="card card-amber">
 <ul>
-<li><strong>Before:</strong> Manual debugging + engineering dependency</li>
-<li><strong>After:</strong> AI-driven RCA + automated fixes</li>
-<li><strong>Result:</strong> 90% reduction in tickets</li>
+<li><strong>Before:</strong> Manual debugging</li>
+<li><strong>After:</strong> AI-driven RCA</li>
+<li><strong>Result:</strong> 90% reduction</li>
 </ul>
 </div>
 
 <h3>Impact</h3>
 <div class="card card-blue">
-Reduced engineering dependency and scaled support efficiency across enterprise clients.
+Scaled support efficiency across enterprise clients and reduced engineering dependency.
 </div>
 
 </div>
 </div>
 
-<!-- SHIPSY -->
+<!-- ================= SHIPSY ================= -->
 <div id="s1" class="panel">
 <div class="panel-inner">
 
-<h2>Shipsy Product Execution</h2>
+<h2>Shipsy Execution</h2>
 
 <div class="card">
-Led enterprise rollouts and translated business workflows into scalable product systems.
+Handled enterprise logistics product execution across multiple clients.
 </div>
 
 <div class="card">
 <ul>
-<li>Handled 30–40 enterprise go-lives</li>
-<li>Worked across product, engineering, ops</li>
-<li>Managed UAT → rollout → debugging</li>
+<li>30–40 enterprise go-lives</li>
+<li>UAT → rollout → debugging</li>
+<li>Cross-team coordination</li>
 </ul>
 </div>
 
 </div>
 </div>
 
-<!-- STACKED AI -->
+<!-- ================= STACKED AI ================= -->
 <div id="s2" class="panel">
 <div class="panel-inner">
 
 <h2>StackedAI</h2>
 
 <div class="card card-teal">
-AI copilot for logistics operations that tells teams what to do next instead of dashboards.
+AI copilot for ops teams that replaces dashboards with decisions.
 </div>
 
 <div class="card">
-Built from real operational gaps between data and decisions.
+Built from real-world logistics inefficiencies.
 </div>
 
 </div>
