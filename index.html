@@ -1,208 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shristi — PM Portfolio</title>
+
+<style>
+body {
+  font-family: -apple-system, Segoe UI, sans-serif;
+  margin: 0;
+  background: #fafaf9;
+  color: #1a1a1a;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-inner {
+  max-width: 900px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links button {
+  border: none;
+  background: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.hero-title {
+  font-size: 36px;
+}
+
+.hero-title span {
+  color: #2563eb;
+}
+
+.hero-sub {
+  color: #555;
+  margin-top: 10px;
+}
+
+.chips span {
+  background: #eee;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.panel-inner {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.stats {
+  display: flex;
+  gap: 10px;
+}
+
+.stat {
+  background: white;
+  padding: 10px;
+  border: 1px solid #eee;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+}
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+</style>
+</head>
+
 <body>
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">Shristi <span>·</span> PM</div>
+    <div>Shristi · PM</div>
     <div class="nav-links">
-      <button class="active" onclick="showPanel('s0',this)">01 AI Systems</button>
-      <button onclick="showPanel('s1',this)">02 Shipsy Product</button>
-      <button onclick="showPanel('s2',this)">03 StackedAI</button>
+      <button onclick="showPanel('s0',this)">AI Systems</button>
+      <button onclick="showPanel('s1',this)">Shipsy</button>
+      <button onclick="showPanel('s2',this)">StackedAI</button>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <p class="hero-eyebrow">Product Manager · AI Systems · April 2026</p>
-
   <h1 class="hero-title">
-    Building <span>AI-powered product systems</span><br>
-    for real-world operations
+    Building <span>AI-powered product systems</span>
   </h1>
 
   <p class="hero-sub">
-    Associate Product Manager at Shipsy. Built AI systems that reduced support tickets by 90% and improved issue resolution to 2 hours for P0s. 
-    I work at the intersection of product, engineering, and operations — turning repetitive problems into scalable systems used by 1.5M–2M+ users.
+    Built AI systems reducing support tickets by 90% and scaling operations to 2M+ users.
   </p>
-
-  <div class="chips">
-    <span class="chip chip-blue">AI Product</span>
-    <span class="chip chip-teal">2M+ users impacted</span>
-    <span class="chip chip-amber">Enterprise SaaS</span>
-    <span class="chip chip-purple">0 → 1 + Scale</span>
-  </div>
-
-  <div class="contact-bar">
-    <span>Gurgaon, India</span>
-    <a href="mailto:shristis308@gmail.com">shristis308@gmail.com</a>
-    <a href="https://www.linkedin.com/in/shristi-614a501b8/" target="_blank">LinkedIn</a>
-    <span>+91-7061170924</span>
-  </div>
 </div>
 
-<!-- WHAT I DO -->
-<div class="panel-inner">
-  <h3>What I Do</h3>
-
-  <div class="card card-blue">
-    <p>I build product systems that solve operational inefficiencies at scale.</p>
-  </div>
-
-  <div class="card">
-    <ul class="plain">
-      <li>Convert repeated support issues into scalable product features (90% ticket reduction)</li>
-      <li>Build AI-powered debugging, RCA, and decision systems</li>
-      <li>Work hands-on with SQL, APIs, logs, and production systems</li>
-      <li>Drive product decisions across engineering, sales, and enterprise clients</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ================= PANEL 1: AI SYSTEMS ================= -->
 <div id="s0" class="panel active">
-<div class="panel-inner">
+  <div class="panel-inner">
+    <h2>AI Systems</h2>
 
-<p class="eyebrow">Case study 01 · AI systems (real work)</p>
-<p class="big-q">"How do you reduce support dependency without scaling support team?"</p>
+    <div class="stats">
+      <div class="stat">90% ticket reduction</div>
+      <div class="stat">2 hr resolution</div>
+      <div class="stat">200+ hrs saved</div>
+    </div>
 
-<p class="intro">
-Enterprise clients at Shipsy generated repeated operational issues requiring engineering intervention. 
-Debugging involved logs, APIs, and database checks — making resolution slow and non-scalable.
-</p>
-
-<div class="stats">
-  <div class="stat"><div class="stat-n">90%</div><div class="stat-l">reduction in support tickets</div></div>
-  <div class="stat"><div class="stat-n">2 hrs</div><div class="stat-l">P0 resolution time</div></div>
-  <div class="stat"><div class="stat-n">200+</div><div class="stat-l">hours saved/month</div></div>
+    <div class="card">
+      Built AI debugging system using Claude + GitHub + PR workflows.
+    </div>
+  </div>
 </div>
 
-<hr class="divider">
-
-<h3>Problem</h3>
-<div class="card card-amber">
-<p>Support teams relied heavily on engineering for debugging. Issues were repetitive but required manual investigation every time.</p>
-</div>
-
-<h3>Insight</h3>
-<div class="card">
-<p>Most issues followed repeatable patterns — making them ideal for structured debugging workflows powered by AI.</p>
-</div>
-
-<h3>Solution</h3>
-<div class="card card-teal">
-<ul class="plain">
-<li>Used Claude with GitHub access to debug production issues</li>
-<li>Generated root cause analysis (RCA) and fix suggestions</li>
-<li>Raised PRs and validated fixes in sandbox environments</li>
-<li>Built an AI agent to provide first-level analysis in support channels</li>
-</ul>
-</div>
-
-<h3>My Role</h3>
-<div class="card">
-<ul class="plain">
-<li>Designed end-to-end debugging workflows using AI</li>
-<li>Built and iterated on AI agent logic and outputs</li>
-<li>Collaborated with engineering to validate and ship fixes</li>
-<li>Integrated AI workflows into support processes</li>
-</ul>
-</div>
-
-<h3>Impact</h3>
-<div class="card card-blue">
-<ul class="plain">
-<li>Reduced support tickets by ~90%</li>
-<li>Improved resolution time to 2 hours for P0 issues</li>
-<li>Reduced dependency on engineering teams</li>
-<li>Scaled support efficiency across enterprise clients</li>
-</ul>
-</div>
-
-</div>
-</div>
-
-<!-- ================= PANEL 2: SHIPSY PRODUCT ================= -->
 <div id="s1" class="panel">
-<div class="panel-inner">
+  <div class="panel-inner">
+    <h2>Shipsy Work</h2>
 
-<p class="eyebrow">Case study 02 · product execution</p>
-<p class="big-q">"How do you scale enterprise logistics workflows across clients?"</p>
-
-<p class="intro">
-Worked on multiple enterprise client implementations including ANC and Teleport rollouts. 
-Focused on translating business requirements into scalable product features.
-</p>
-
-<h3>Key Decisions</h3>
-<div class="card">
-<ul class="plain">
-<li>Prioritized go-live clients over backlog issues to minimize business impact</li>
-<li>Rejected invalid workflows (e.g. POD before delivery)</li>
-<li>Pushed back on engineering for optimized solutions</li>
-<li>Adjusted scope dynamically based on client requirements</li>
-</ul>
+    <div class="card">
+      Led enterprise client rollouts and product execution across logistics workflows.
+    </div>
+  </div>
 </div>
 
-<h3>Ownership</h3>
-<div class="card">
-<ul class="plain">
-<li>Scoped requirements → PRD → shipped features</li>
-<li>Worked with engineering end-to-end</li>
-<li>Managed UAT, debugging, and production rollout</li>
-</ul>
-</div>
-
-<h3>Impact</h3>
-<div class="card card-blue">
-<ul class="plain">
-<li>Enabled successful go-lives for 30–40 enterprise clients</li>
-<li>Maintained 100% retention across key accounts</li>
-<li>Improved feature adoption by ~95%</li>
-</ul>
-</div>
-
-</div>
-</div>
-
-<!-- ================= PANEL 3: STACKED AI ================= -->
 <div id="s2" class="panel">
-<div class="panel-inner">
+  <div class="panel-inner">
+    <h2>StackedAI</h2>
 
-<p class="eyebrow">Case study 03 · 0 → 1 product</p>
-<p class="big-q">"What if ops teams had an AI copilot for decision-making?"</p>
-
-<p class="intro">
-Designed StackedAI based on real logistics pain points observed while working with enterprise clients.
-</p>
-
-<div class="card card-teal">
-<p>An AI layer that sits on top of logistics tools and tells ops teams what to do next — instead of dashboards.</p>
+    <div class="card">
+      Designed AI copilot for logistics operations.
+    </div>
+  </div>
 </div>
 
-<div class="card">
-<p>Bridges the gap between data and decisions for operations teams.</p>
-</div>
-
-</div>
-</div>
-
-<!-- FOOTER -->
 <div class="footer">
-  <p>Shristi · Product Manager · Gurgaon, India</p>
-  <p>
-    <a href="mailto:shristis308@gmail.com">shristis308@gmail.com</a> · 
-    <a href="https://www.linkedin.com/in/shristi-614a501b8/" target="_blank">LinkedIn</a>
-  </p>
+  Shristi · Product Manager
 </div>
 
 <script>
 function showPanel(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 
 </body>
+</html>
