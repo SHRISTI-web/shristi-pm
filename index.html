@@ -1,175 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shristi — PM Portfolio</title>
-<style>
-  :root {
-    --bg: #fafaf9;
-    --surface: #ffffff;
-    --border: rgba(0,0,0,0.08);
-    --border-med: rgba(0,0,0,0.14);
-    --text: #1a1a1a;
-    --muted: #555;
-    --faint: #888;
-    --blue: #2563eb;
-    --blue-light: #eff6ff;
-    --blue-dark: #1e40af;
-    --teal: #0d9488;
-    --teal-light: #f0fdfa;
-    --teal-dark: #115e59;
-    --amber: #d97706;
-    --amber-light: #fffbeb;
-    --amber-dark: #92400e;
-    --purple: #7c3aed;
-    --purple-light: #f5f3ff;
-    --purple-dark: #4c1d95;
-    --coral: #dc2626;
-    --coral-light: #fff1f2;
-    --coral-dark: #9f1239;
-    --radius: 12px;
-    --radius-sm: 8px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-  a { color: var(--blue); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+<!-- ONLY SHOWING UPDATED SECTIONS — keep your CSS and structure SAME -->
 
-  /* NAV */
-  nav { position: sticky; top: 0; background: rgba(250,250,249,0.9); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); z-index: 100; }
-  .nav-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
-  .nav-logo { font-size: 15px; font-weight: 600; color: var(--text); }
-  .nav-logo span { color: var(--blue); }
-  .nav-links { display: flex; gap: 6px; }
-  .nav-links button { font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--border-med); background: transparent; color: var(--muted); cursor: pointer; transition: all .15s; }
-  .nav-links button:hover { background: var(--surface); color: var(--text); }
-  .nav-links button.active { background: var(--blue-light); color: var(--blue-dark); border-color: #93c5fd; }
-
-  /* HERO */
-  .hero { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 2.5rem; }
-  .hero-eyebrow { font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
-  .hero-title { font-size: 38px; font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 16px; }
-  .hero-title span { color: var(--blue); }
-  .hero-sub { font-size: 15px; color: var(--muted); max-width: 580px; line-height: 1.75; margin-bottom: 24px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-  .chip { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
-  .chip-blue { background: var(--blue-light); color: var(--blue-dark); }
-  .chip-teal { background: var(--teal-light); color: var(--teal-dark); }
-  .chip-amber { background: var(--amber-light); color: var(--amber-dark); }
-  .chip-purple { background: var(--purple-light); color: var(--purple-dark); }
-  .chip-coral { background: var(--coral-light); color: var(--coral-dark); }
-  .contact-bar { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--faint); }
-  .contact-bar a { color: var(--faint); }
-  .contact-bar a:hover { color: var(--blue); text-decoration: none; }
-
-  /* CASE STUDY TABS */
-  .cs-tabs { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
-  .tab-row { display: flex; gap: 8px; border-bottom: 0.5px solid var(--border-med); padding-bottom: 0; margin-bottom: 2.5rem; overflow-x: auto; }
-  .tab-btn { font-size: 13px; font-weight: 500; padding: 10px 16px; border: none; background: transparent; color: var(--faint); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -0.5px; white-space: nowrap; transition: all .15s; }
-  .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
-
-  /* PANEL */
-  .panel { display: none; }
-  .panel.active { display: block; }
-  .panel-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem 4rem; }
-
-  /* SECTION COMPONENTS */
-  .eyebrow { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
-  .big-q { font-size: 26px; font-weight: 700; line-height: 1.25; margin-bottom: 14px; }
-  .intro { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
-  .divider { border: none; border-top: 0.5px solid var(--border); margin: 2rem 0; }
-  h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
-  h4 { font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
-  p, li { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
-
-  /* STAT ROW */
-  .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 1.5rem; }
-  .stat { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 14px; }
-  .stat-n { font-size: 22px; font-weight: 700; color: var(--text); }
-  .stat-l { font-size: 11px; color: var(--faint); margin-top: 3px; line-height: 1.45; }
-
-  /* CARDS */
-  .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; margin-bottom: 10px; }
-  .card-blue { border-left: 3px solid var(--blue); border-radius: 0 var(--radius) var(--radius) 0; }
-  .card-teal { border-left: 3px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; }
-  .card-amber { border-left: 3px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; }
-  .card-purple { border-left: 3px solid var(--purple); border-radius: 0 var(--radius) var(--radius) 0; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  ul.plain { list-style: none; padding: 0; margin-top: 8px; }
-  ul.plain li::before { content: "–"; margin-right: 8px; color: var(--faint); }
-
-  /* TABLE */
-  .data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  .data-table th { text-align: left; color: var(--faint); font-weight: 500; padding: 8px 10px; border-bottom: 0.5px solid var(--border-med); }
-  .data-table td { padding: 8px 10px; border-bottom: 0.5px solid var(--border); color: var(--muted); vertical-align: top; }
-  .data-table tr:last-child td { border-bottom: none; }
-  .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
-  .b-p0 { background: #fee2e2; color: #991b1b; }
-  .b-p1 { background: #fef3c7; color: #92400e; }
-  .b-p2 { background: #dbeafe; color: #1e40af; }
-  .b-hi { background: #d1fae5; color: #065f46; }
-  .b-med { background: #fef3c7; color: #92400e; }
-  .b-lo { background: #f3f4f6; color: #374151; }
-
-  /* QUOTE */
-  .blockquote { border-left: 3px solid var(--purple); padding-left: 16px; margin: 1rem 0; }
-  .blockquote p { font-size: 14.5px; color: var(--text); font-weight: 500; font-style: italic; }
-
-  /* METRIC ROW */
-  .mrow { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; gap: 16px; }
-  .mrow:last-child { border-bottom: none; }
-  .mk { color: var(--muted); flex-shrink: 0; max-width: 45%; }
-  .mv { font-weight: 500; color: var(--text); text-align: right; }
-
-  /* CHART */
-  .chart-wrap { position: relative; width: 100%; height: 240px; margin: 1rem 0 1.5rem; }
-
-  /* TIMELINE */
-  .tl { margin: 12px 0; }
-  .tl-item { display: flex; gap: 14px; padding-bottom: 20px; }
-  .tl-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
-  .tl-dot-blue { background: var(--blue); }
-  .tl-dot-amber { background: var(--amber); }
-  .tl-dot-teal { background: var(--teal); }
-
-  /* FOOTER */
-  .footer { max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem 3rem; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer p { font-size: 12px; color: var(--faint); }
-
-  @media(max-width:600px) {
-    .hero-title { font-size: 26px; }
-    .stats { grid-template-columns: 1fr 1fr; }
-    .two-col { grid-template-columns: 1fr; }
-    .big-q { font-size: 20px; }
-    .nav-links { gap: 4px; }
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo">Shristi <span>·</span> PM</div>
-    <div class="nav-links">
-      <button class="active" onclick="showPanel('s1',this)">01 StackedAI</button>
-      <button onclick="showPanel('s2',this)">02 Gig economy</button>
-      <button onclick="showPanel('s3',this)">03 IRCTC</button>
-    </div>
-  </div>
-</nav>
-
+<!-- ================= HERO REWRITE ================= -->
 <div class="hero">
-  <p class="hero-eyebrow">PM Portfolio · April 2026</p>
-  <h1 class="hero-title">Product thinking,<br><span>in three case studies.</span></h1>
-  <p class="hero-sub">2 years building at the intersection of logistics, driver ops, and enterprise SaaS at Shipsy. These case studies show how I think — from zero-to-one products to broken public systems to market opportunities hiding in plain sight.</p>
+  <p class="hero-eyebrow">Product Manager · AI Systems · April 2026</p>
+
+  <h1 class="hero-title">
+    Building <span>AI-powered product systems</span><br>
+    for real-world operations
+  </h1>
+
+  <p class="hero-sub">
+    Associate Product Manager at Shipsy. I build systems used by 1.5M–2M+ users across logistics and D2C. 
+    My work focuses on turning operational chaos into scalable products — increasingly using AI and automation.
+  </p>
+
   <div class="chips">
-    <span class="chip chip-blue">0 → 1 product</span>
-    <span class="chip chip-teal">India market data</span>
-    <span class="chip chip-amber">Public systems redesign</span>
-    <span class="chip chip-purple">PRD + roadmap</span>
+    <span class="chip chip-blue">AI Product</span>
+    <span class="chip chip-teal">2M+ users impacted</span>
+    <span class="chip chip-amber">Enterprise SaaS</span>
+    <span class="chip chip-purple">Systems thinking</span>
   </div>
+
   <div class="contact-bar">
     <span>Gurgaon, India</span>
     <a href="mailto:shristis308@gmail.com">shristis308@gmail.com</a>
@@ -178,273 +29,96 @@
   </div>
 </div>
 
-<div class="cs-tabs">
-  <div class="tab-row">
-    <button class="tab-btn active" onclick="showPanel('s1',this)">01 &nbsp; StackedAI — fake startup</button>
-    <button class="tab-btn" onclick="showPanel('s2',this)">02 &nbsp; Gig economy data story</button>
-    <button class="tab-btn" onclick="showPanel('s3',this)">03 &nbsp; Fix India — IRCTC</button>
+<!-- ================= ADD NEW SECTION ================= -->
+<div class="panel-inner">
+  <h3>What I Do</h3>
+
+  <div class="card card-blue">
+    <p>I build product systems that solve operational inefficiencies at scale — especially in logistics and enterprise workflows.</p>
+  </div>
+
+  <div class="card">
+    <ul class="plain">
+      <li>Turn repetitive support issues into scalable product features (90% ticket reduction)</li>
+      <li>Use AI to automate debugging, RCA, and decision-making workflows</li>
+      <li>Bridge product, engineering, and operations using technical debugging (SQL, APIs, logs)</li>
+      <li>Prioritize and ship features impacting enterprise clients across global markets</li>
+    </ul>
   </div>
 </div>
 
-<!-- ── PANEL 1: STACKEDAI ── -->
-<div id="s1" class="panel active">
+<!-- ================= ADD NEW TAB ================= -->
+<div class="nav-links">
+  <button onclick="showPanel('s0',this)">00 AI Systems</button>
+  <button class="active" onclick="showPanel('s1',this)">01 StackedAI</button>
+  <button onclick="showPanel('s2',this)">02 Gig economy</button>
+  <button onclick="showPanel('s3',this)">03 IRCTC</button>
+</div>
+
+<!-- ================= NEW PANEL: AI SYSTEMS ================= -->
+<div id="s0" class="panel">
 <div class="panel-inner">
-  <p class="eyebrow">Case study 01 · 0 → 1 product</p>
-  <p class="big-q">"What if every D2C ops manager had a PM as a copilot?"</p>
-  <p class="intro">India has 80,000+ D2C brands. Most run delivery ops on WhatsApp, spreadsheets, and gut feel. When something breaks — a courier delay, an SLA breach, a warehouse bottleneck — the ops manager finds out from an angry customer, not from their tools. I designed StackedAI to fix that.</p>
+
+  <p class="eyebrow">Case study 00 · AI systems (real work)</p>
+  <p class="big-q">"How do you reduce support dependency without scaling support team?"</p>
+
+  <p class="intro">
+    At Shipsy, enterprise clients generated repeated operational issues requiring engineering intervention.
+    This created bottlenecks in debugging, slower resolution times, and heavy dependency on support teams.
+  </p>
 
   <div class="stats">
-    <div class="stat"><div class="stat-n">80K+</div><div class="stat-l">D2C brands in India as of 2025</div></div>
-    <div class="stat"><div class="stat-n">63%</div><div class="stat-l">report ops delays as top growth blocker</div></div>
-    <div class="stat"><div class="stat-n">₹4,200Cr</div><div class="stat-l">estimated annual loss from delivery failures</div></div>
+    <div class="stat"><div class="stat-n">90%</div><div class="stat-l">reduction in support tickets</div></div>
+    <div class="stat"><div class="stat-n">2 hrs</div><div class="stat-l">P0 resolution time</div></div>
+    <div class="stat"><div class="stat-n">200+</div><div class="stat-l">hours saved per month</div></div>
   </div>
 
   <hr class="divider">
-  <h3>The problem in three acts</h3>
-  <div class="card card-amber" style="margin-top:12px;">
-    <h4>Act 1 — ops managers are firefighters, not planners</h4>
-    <p>They spend 4–5 hrs/day on reactive tasks: chasing couriers, manually escalating RTO orders, updating spreadsheets. There's no system surfacing "your SLA breach rate this week is 22% — here's why."</p>
-  </div>
+
+  <h3>Problem</h3>
   <div class="card card-amber">
-    <h4>Act 2 — data exists but nobody reads it</h4>
-    <p>Shipway, Shiprocket, Delhivery dashboards generate data. But ops managers aren't analysts. They need decisions, not dashboards. Nobody has bridged that gap yet.</p>
-  </div>
-  <div class="card card-amber">
-    <h4>Act 3 — AI tools exist but aren't ops-native</h4>
-    <p>ChatGPT can answer questions but doesn't know your courier's TAT, your SKU return rates, or your warehouse shift schedule. Context is everything — and context is missing.</p>
+    <p>Support issues required manual debugging using logs, APIs, and engineering support. Resolution was slow and repetitive.</p>
   </div>
 
-  <hr class="divider">
-  <h3>The product — StackedAI</h3>
-  <div class="blockquote">
-    <p>An AI copilot that sits on top of your existing logistics stack, reads your ops data in real time, and tells you what to do next — before the customer complains.</p>
-  </div>
-  <div class="two-col" style="margin-top:14px;">
-    <div class="card">
-      <h4>Core features</h4>
-      <ul class="plain">
-        <li>Daily ops brief — top 3 actions for today</li>
-        <li>SLA breach predictor with 6hr early warning</li>
-        <li>RTO recovery — auto-flag, auto-reattempt</li>
-        <li>NLP query: "why did returns spike Tuesday?"</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4>Integrations (day 1)</h4>
-      <ul class="plain">
-        <li>Shiprocket, Delhivery, Ecom Express APIs</li>
-        <li>Shopify / WooCommerce order data</li>
-        <li>WhatsApp Business for alert delivery</li>
-        <li>Google Sheets export for finance teams</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr class="divider">
-  <h3>Go-to-market — first 100 customers</h3>
+  <h3>Insight</h3>
   <div class="card">
-    <div class="mrow"><span class="mk">Phase 1 (0–3 months)</span><span class="mv">Free beta via D2C WhatsApp communities. One problem: daily ops brief.</span></div>
-    <div class="mrow"><span class="mk">Phase 2 (3–6 months)</span><span class="mv">Paid at ₹2,999/mo. Brands doing 500+ orders/day. Listed app on Shiprocket.</span></div>
-    <div class="mrow"><span class="mk">Phase 3 (6–12 months)</span><span class="mv">Enterprise plan for 50+ brand portfolios. White-label for 3PLs.</span></div>
+    <p>Most issues followed repeatable patterns → ideal for automation using AI + structured debugging workflows.</p>
   </div>
 
-  <hr class="divider">
-  <h3>Success metrics</h3>
-  <div class="stats">
-    <div class="stat"><div class="stat-n">DAU/MAU</div><div class="stat-l">Target &gt;60% — sticky daily tool</div></div>
-    <div class="stat"><div class="stat-n">&lt;24hr</div><div class="stat-l">Time-to-first-useful-insight after signup</div></div>
-    <div class="stat"><div class="stat-n">–15%</div><div class="stat-l">SLA breach rate reduction in 90 days</div></div>
-  </div>
-
-  <hr class="divider">
-  <p class="eyebrow">Why this case study matters</p>
-  <p>At Shipsy, I worked directly on driver app sequencing, multi-country logistics go-lives, and enterprise client support. StackedAI is the product I would have wanted our clients' ops managers to have. Every feature in this concept maps to a real pain point I've watched ops teams struggle with.</p>
-</div>
-</div>
-
-<!-- ── PANEL 2: GIG ECONOMY ── -->
-<div id="s2" class="panel">
-<div class="panel-inner">
-  <p class="eyebrow">Case study 02 · India data story</p>
-  <p class="big-q">"India's gig economy is built on borrowed time — and the product opportunity nobody is building."</p>
-  <p class="intro">India has 15M+ gig workers in delivery and ride-hailing. The platforms need them desperately. But the platforms have also made their income structurally unstable — and that instability is a product problem, not just a social one.</p>
-
-  <div class="stats">
-    <div class="stat"><div class="stat-n">15M+</div><div class="stat-l">gig delivery & ride-hailing workers in India</div></div>
-    <div class="stat"><div class="stat-n">₹12,000</div><div class="stat-l">median monthly income (down from ₹18K in 2021)</div></div>
-    <div class="stat"><div class="stat-n">68%</div><div class="stat-l">have no income backup when sick or off-platform</div></div>
-  </div>
-
-  <hr class="divider">
-  <h3>Driver median income: 2021–2025</h3>
-  <div class="chart-wrap">
-    <canvas id="gigChart" role="img" aria-label="Bar chart showing declining driver median monthly income from ₹18,000 in 2021 to ₹12,000 in 2025">Income: 2021 ₹18K, 2022 ₹16.2K, 2023 ₹14.8K, 2024 ₹13.1K, 2025 ₹12K</canvas>
-  </div>
-
-  <hr class="divider">
-  <h3>The income instability loop</h3>
-  <div class="tl">
-    <div class="tl-item">
-      <div class="tl-dot tl-dot-blue"></div>
-      <div>
-        <h4>Algorithmic surge pricing (driver side)</h4>
-        <p>Earnings are unpredictable hour-to-hour. A driver earns ₹800 on Monday, ₹220 on Tuesday. No way to forecast income or plan expenses.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot tl-dot-amber"></div>
-      <div>
-        <h4>Zero income protection</h4>
-        <p>No sick pay, no ESI, no PF. An injury = zero income. Churn rate for drivers &gt;18 months on platform is &gt;40% — burnout is the top reason cited.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot tl-dot-teal"></div>
-      <div>
-        <h4>Debt trap via instant loan products</h4>
-        <p>Platforms now offer "instant cash advances" against future earnings at 2–4% monthly interest. 1 in 3 active drivers in Tier-1 cities has taken one. Most rollover.</p>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-  <h3>The product opportunity — income stability as a feature</h3>
-  <div class="blockquote">
-    <p>The platform that solves driver income instability will win the supply war. Retention is cheaper than acquisition. Churn costs ₹3,000–5,000 per driver to replace.</p>
-  </div>
-  <div class="card card-teal" style="margin-top:14px;">
-    <h4>Feature idea: SteadyPay</h4>
-    <p>Guaranteed minimum weekly payout (e.g. ₹3,500) funded by a small platform reserve, smoothed across fluctuating daily earnings. Drivers opt in; excess earnings above a threshold replenish the reserve. Income smoothing, not charity.</p>
-  </div>
+  <h3>Solution</h3>
   <div class="card card-teal">
-    <h4>Feature idea: Shield — micro insurance built in</h4>
-    <p>₹5/day deducted automatically. Covers: accident hospitalization (₹50K), bike damage (₹15K), 7-day income replacement. Underwritten by a partner insurer, distributed via the app. No agent, no paperwork.</p>
+    <ul class="plain">
+      <li>Used Claude + GitHub to debug production issues</li>
+      <li>Generated RCA and fix suggestions automatically</li>
+      <li>Raised PRs and tested fixes in sandbox environments</li>
+      <li>Built AI agent for first-level issue analysis in support channel</li>
+    </ul>
   </div>
 
-  <hr class="divider">
-  <h3>Prioritisation — if I were the PM</h3>
+  <h3>My Role</h3>
   <div class="card">
-    <table class="data-table">
-      <thead><tr><th>Feature</th><th>Retention impact</th><th>Effort</th><th>Priority</th></tr></thead>
-      <tbody>
-        <tr><td>Weekly earnings forecast (in-app)</td><td>High — reduces anxiety</td><td>Low</td><td><span class="badge b-p0">P0</span></td></tr>
-        <tr><td>SteadyPay income smoothing</td><td>Very high</td><td>High</td><td><span class="badge b-p1">P1</span></td></tr>
-        <tr><td>Shield micro-insurance</td><td>High</td><td>Medium</td><td><span class="badge b-p1">P1</span></td></tr>
-        <tr><td>Transparent surge explanation</td><td>Medium</td><td>Low</td><td><span class="badge b-p2">P2</span></td></tr>
-      </tbody>
-    </table>
+    <ul class="plain">
+      <li>Designed debugging workflows using AI</li>
+      <li>Built and iterated on AI agent prompts and outputs</li>
+      <li>Integrated into support processes</li>
+      <li>Bridged engineering and support workflows</li>
+    </ul>
+  </div>
+
+  <h3>Impact</h3>
+  <div class="card card-blue">
+    <ul class="plain">
+      <li>Reduced support tickets by 90%</li>
+      <li>Accelerated issue triaging and resolution</li>
+      <li>Reduced dependency on engineering for debugging</li>
+      <li>Improved operational efficiency across clients</li>
+    </ul>
   </div>
 
   <hr class="divider">
-  <p class="eyebrow">Why this case study matters</p>
-  <p>I spent 2 years supporting driver-side product at Shipsy — in-app sequencing, driver task clarity, and ops that directly affect gig worker experience. This case study applies that lens to consumer platforms. I can defend every claim and every product decision here in an interview room.</p>
+
+  <p class="eyebrow">Why this matters</p>
+  <p>This demonstrates building AI-powered product systems, not just features — aligning with the next wave of product management.</p>
+
 </div>
 </div>
-
-<!-- ── PANEL 3: IRCTC ── -->
-<div id="s3" class="panel">
-<div class="panel-inner">
-  <p class="eyebrow">Case study 03 · Fix India — public systems redesign</p>
-  <p class="big-q">"IRCTC books 1.4M tickets a day. It shouldn't feel like punishment."</p>
-  <p class="intro">IRCTC is the world's largest railway ticketing platform by volume — and one of the most frustrating digital experiences in India. 800 million Indians depend on it. A PM with the right mandate could transform it. Here's exactly what I'd do first, and why.</p>
-
-  <div class="stats">
-    <div class="stat"><div class="stat-n">1.4M</div><div class="stat-l">tickets booked daily on IRCTC</div></div>
-    <div class="stat"><div class="stat-n">58%</div><div class="stat-l">of users abandon during Tatkal booking</div></div>
-    <div class="stat"><div class="stat-n">4.2★</div><div class="stat-l">Play Store rating — should be 4.7+</div></div>
-  </div>
-
-  <hr class="divider">
-  <h3>Top 3 problems worth fixing</h3>
-  <div class="card card-purple" style="margin-top:12px;">
-    <h4>Problem 1 — Tatkal is a lottery, not a feature</h4>
-    <p>Tatkal opens at 10am. The site crashes. Users with faster internet and auto-fill scripts win. Regular users lose. This isn't a technical problem — it's a queue management and UX problem. Virtual queues exist. IRCTC doesn't use them.</p>
-  </div>
-  <div class="card card-purple">
-    <h4>Problem 2 — PNR status is spread across 6 screens</h4>
-    <p>To check if your booking is confirmed: PNR page → train status page → coach position page. None link to each other. A single "my trip" view would reduce support calls by an estimated 30%.</p>
-  </div>
-  <div class="card card-purple">
-    <h4>Problem 3 — Refund status is a black box</h4>
-    <p>Cancel a ticket → get a reference number → hear nothing for 7 days. No push notification, no timeline. Users call the helpline. The helpline has a 45-minute wait. This is a solved problem in every other consumer app.</p>
-  </div>
-
-  <hr class="divider">
-  <h3>Proposed solutions</h3>
-  <div class="card card-teal">
-    <h4>Fix 1 — Virtual queue for Tatkal <span class="badge b-p0" style="margin-left:8px;">P0</span></h4>
-    <p>Users join the queue at 9:50am. Queue opens at 10am, processes in order of join time. No crashes. No unfair advantage for scripts. Modeled after CoWIN's slot booking — which India proved works at scale for 1B+ users.</p>
-    <div style="margin-top:8px;display:flex;gap:6px;"><span class="badge b-hi">High impact</span><span class="badge b-med">Medium effort</span></div>
-  </div>
-  <div class="card card-teal">
-    <h4>Fix 2 — "My trip" unified view <span class="badge b-p0" style="margin-left:8px;">P0</span></h4>
-    <p>One screen: booking confirmation + PNR status + coach position + live train location + platform number. One deep link shareable with family. Built on existing APIs — just stitched together properly. Engineering effort: 2 sprints max.</p>
-    <div style="margin-top:8px;display:flex;gap:6px;"><span class="badge b-hi">High impact</span><span class="badge b-lo">Low effort</span></div>
-  </div>
-  <div class="card card-teal">
-    <h4>Fix 3 — Refund tracker with push notifications <span class="badge b-p1" style="margin-left:8px;">P1</span></h4>
-    <p>Post-cancellation: push at T+0 (acknowledged), T+24hrs (processing), T+refund (credited with exact amount). Three notifications. No call needed. Modeled on how Zomato handles refunds — a pattern Indian users already understand.</p>
-    <div style="margin-top:8px;display:flex;gap:6px;"><span class="badge b-hi">High impact</span><span class="badge b-lo">Low effort</span></div>
-  </div>
-
-  <hr class="divider">
-  <h3>Why these, why now</h3>
-  <div class="card">
-    <div class="mrow"><span class="mk">All three use existing data</span><span class="mv">No new backend needed. Better UX on top of what exists.</span></div>
-    <div class="mrow"><span class="mk">Measurable in 30 days</span><span class="mv">Helpline volume, app rating, abandonment rate — all trackable immediately.</span></div>
-    <div class="mrow"><span class="mk">Political will exists</span><span class="mv">Indian Railways has publicly committed to a digital overhaul by 2026. This is the roadmap.</span></div>
-  </div>
-
-  <hr class="divider">
-  <p class="eyebrow">Why this case study matters</p>
-  <p>Having worked on multi-country go-lives, UAT bug resolution, and driver app sequencing at Shipsy — I know what "simple UX" costs to build on complex backend systems. These three fixes are tractable. Every Indian recruiter reading this has felt these problems personally. That's the point.</p>
-</div>
-</div>
-
-<div class="footer">
-  <p>Shristi · Associate Product Manager · Gurgaon, India</p>
-  <p><a href="mailto:shristis308@gmail.com">shristis308@gmail.com</a> · <a href="https://www.linkedin.com/in/shristi-614a501b8/" target="_blank">LinkedIn</a></p>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<script>
-function showPanel(id, btn) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn, .nav-links button').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('button[onclick*="' + id + '"]').forEach(b => b.classList.add('active'));
-  if (id === 's2') renderChart();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-var chartMade = false;
-function renderChart() {
-  if (chartMade) return; chartMade = true;
-  new Chart(document.getElementById('gigChart'), {
-    type: 'bar',
-    data: {
-      labels: ['2021','2022','2023','2024','2025'],
-      datasets: [{
-        label: 'Median monthly income (₹)',
-        data: [18000,16200,14800,13100,12000],
-        backgroundColor: ['#bfdbfe','#93c5fd','#60a5fa','#3b82f6','#1d4ed8'],
-        borderWidth: 0, borderRadius: 5
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '₹' + ctx.parsed.y.toLocaleString('en-IN') } } },
-      scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 12 } } },
-        y: {
-          min: 9000, max: 20000,
-          ticks: { callback: v => '₹' + Math.round(v/1000) + 'K', font: { size: 11 } },
-          grid: { color: 'rgba(0,0,0,0.05)' }
-        }
-      }
-    }
-  });
-}
-</script>
-</body>
-</html>
