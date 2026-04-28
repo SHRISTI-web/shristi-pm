@@ -193,20 +193,37 @@ h3 {
       <div class="stat">200+ hrs saved/month</div>
     </div>
 
-    <h3>Solution</h3>
-    <div class="card card-teal">
-      Built an AI-powered debugging system using Claude + GitHub workflows:
+    <h3>System Design</h3>
+    <div class="card">
       <ul>
-        <li>Auto RCA generation</li>
-        <li>Suggested fixes + PR creation</li>
-        <li>Sandbox validation</li>
-        <li>AI agent for support teams</li>
+        <li>User raises issue → AI agent parses query</li>
+        <li>Fetch logs / API / DB data</li>
+        <li>Claude generates RCA</li>
+        <li>Suggested fix → PR → sandbox testing</li>
+      </ul>
+    </div>
+
+    <h3>Key Decisions</h3>
+    <div class="card">
+      <ul>
+        <li>Prioritized AI debugging over dashboards</li>
+        <li>Balanced automation with manual override</li>
+        <li>Focused on repeatable issue patterns first</li>
+      </ul>
+    </div>
+
+    <h3>Before vs After</h3>
+    <div class="card card-amber">
+      <ul>
+        <li><strong>Before:</strong> Manual debugging, engineering dependency</li>
+        <li><strong>After:</strong> AI-driven RCA and fixes</li>
+        <li><strong>Result:</strong> 90% ticket reduction</li>
       </ul>
     </div>
 
     <h3>Impact</h3>
     <div class="card card-blue">
-      Reduced dependency on engineering, scaled support efficiency, and enabled faster resolution across enterprise clients.
+      Reduced dependency on engineering, scaled support efficiency, and improved resolution speed.
     </div>
 
   </div>
@@ -222,11 +239,21 @@ h3 {
       Led enterprise client rollouts and translated business workflows into scalable product features.
     </div>
 
+    <h3>Decisions</h3>
     <div class="card">
       <ul>
+        <li>Prioritized go-live clients over backlog</li>
+        <li>Rejected invalid workflows</li>
+        <li>Aligned engineering with scalable solutions</li>
+      </ul>
+    </div>
+
+    <h3>Impact</h3>
+    <div class="card card-blue">
+      <ul>
         <li>Handled 30–40 enterprise go-lives</li>
-        <li>Worked across product, engineering, and ops</li>
-        <li>Managed UAT → rollout → debugging</li>
+        <li>Improved feature adoption (~95%)</li>
+        <li>Maintained strong client retention</li>
       </ul>
     </div>
 
@@ -240,11 +267,12 @@ h3 {
     <h2>StackedAI</h2>
 
     <div class="card card-teal">
-      AI copilot for logistics operations that tells teams what to do next instead of showing dashboards.
+      AI copilot for logistics operations that tells teams what to do next instead of dashboards.
     </div>
 
+    <h3>Why this matters</h3>
     <div class="card">
-      Built from real operational pain points observed in enterprise logistics systems.
+      Built from real operational gaps between data and decision-making in logistics systems.
     </div>
 
   </div>
